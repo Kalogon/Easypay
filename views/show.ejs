@@ -1,0 +1,25 @@
+<% include _header%>
+<h1>정산 기록</h1>
+<br>
+<br>
+<br>
+<% let count=0 %>
+<% currentUser.rooms.forEach(function(room){%>
+  <p><%=currentUser.roomNames[count++]%></p>
+  <% room.forEach(function(each){%>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p><%=each.tempfriend %></p>
+    </div>
+    <div class="panel-body">
+      <p><%=each.tempmoney%></p>
+    </div>
+  </div>
+  <% }) %>
+  <br>
+  <hr style="border: solid 0.5px skyblue;">
+  <br>
+<% }) %>
+ 
+<% include _footer%>
+

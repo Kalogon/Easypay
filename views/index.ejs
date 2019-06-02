@@ -1,0 +1,26 @@
+<% include _header%>
+<h1>돈을 받고 정산완료 버튼을 눌러주세요!</h1>
+<br>
+<br>
+<br>
+<% user.friends.forEach(function(friendandmoney){%>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p><%=friendandmoney.friend %></p>
+    </div>
+    <div class="panel-body">
+        <%=friendandmoney.money%>
+    </div>
+    <div class="panel-footer">
+      <form name="complete" action="/complete" method="post">
+        <input type="hidden" name="friend" value=<%=friendandmoney.friend%>>
+        <input type="hidden" name="money" value=<%=friendandmoney.money%>>
+        <input type="Submit" value="정산완료">
+      </form>
+    </div>
+  </div>
+
+<% }) %>
+ 
+<% include _footer%>
+

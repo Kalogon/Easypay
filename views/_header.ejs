@@ -1,0 +1,63 @@
+<!DOCCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Easypay</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">Easypay</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if (currentUser) {%>
+        <li>
+          <a href="/edit">Hello, <%= currentUser.name() %></a>
+        </li>
+        <li>
+          <a href="/room">Make a New Room</a>
+        </li>
+        <li>
+          <a href="/show">Show previous Rooms</a>
+        </li>
+        <li>
+          <a href="/logout">Log out</a>
+        </li>
+        <%} else{%>
+          <li>
+            <a href="/login">Log in</a>
+          </li>
+          <li>
+            <a href="/signup">Sign up</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+
+  <style type="text/css">
+    .jumbotron{
+      background-image: url('images/jumbotronBackground.png');
+      background-color: skyblue;
+      background-size: cover;
+      text-shadow: black 0.2em 0.2em 0.2em;
+      color: white;
+    }
+  </style>
+
+
+  <div class="container">
+    <% errors.forEach(function(error){%>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% }) %>
+    <% infos.forEach(function(info){ %>
+      <div class="alert alert-info" role="alert">
+        <%= info %>
+      </div>
+    <% }) %>
+

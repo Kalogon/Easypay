@@ -1,0 +1,24 @@
+<% include _header%>
+
+<div class="jumbotron">
+  <h1 class="text-center">Welcome to EasyPay!</h1>
+  <p class="text-center">EasyPay는 정산을 도와주는 서비스입니다</p>
+</div>
+
+<h1>Welcome to EasyPay!</h1>
+<br>
+<% users.forEach(function(user){%>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a href="/users/<%=user.username%>"><%=user.name()%></a>
+    </div>
+    <% if(user.bio){%>
+      <div class="panel-body">
+        <%=user.bio%>
+      </div>
+    <% } %>
+  </div>
+<% }) %>
+ 
+<% include _footer%>
+
